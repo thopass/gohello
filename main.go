@@ -39,11 +39,19 @@ func printStringWithFrame(content string) {
 	textLen := len(content)
 	buf := make([]byte, textLen+4)
 
-	for x := 0; x < (textLen + 4); x++ {
-		buf[x] = '*'
+	buf[0] = '+'
+	for x := 1; x < (textLen + 3); x++ {
+		buf[x] = '-'
 	}
+	buf[textLen+3] = '+'
 
 	fmt.Println(string(buf))
-	fmt.Println("*", content, "*")
+	fmt.Println("|", content, "|")
+
+	buf[0] = '+'
+	for x := 1; x < (textLen + 3); x++ {
+		buf[x] = '-'
+	}
+	buf[textLen+3] = '+'
 	fmt.Println(string(buf))
 }
